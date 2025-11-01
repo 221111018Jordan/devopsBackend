@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-// URL API backend Anda. Pastikan port-nya benar (4000).
+// URL API backend Anda. Pastikan port-nya benar (3000).
 const API_URL = 'http://localhost:4000/tasks';
 
 function App() {
