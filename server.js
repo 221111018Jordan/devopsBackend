@@ -1,8 +1,8 @@
 // Impor library
+require('dotenv').config(); // Muat variabel dari .env
 const express = require('express');
 const mysql = require('mysql2/promise'); // Gunakan versi promise
 const cors = require('cors');
-require('dotenv').config(); // Muat variabel dari .env
 
 // Inisialisasi aplikasi Express
 const app = express();
@@ -16,9 +16,6 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  // Aiven memerlukan SSL, tetapi untuk demo, kita bisa nonaktifkan
-  // pengecekan sertifikat.
-  // !! PERINGATAN: Tidak aman untuk produksi, tapi cukup untuk demo !!
   ssl: {
     rejectUnauthorized: false,
   },
