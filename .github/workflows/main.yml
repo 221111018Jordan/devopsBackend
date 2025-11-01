@@ -1,0 +1,24 @@
+name: Publish docker Image
+
+on:
+  push:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v5
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build image
+        run: docker build -t 221111018jordan/be-app:latest .
+      -
+        name: Push image
+        run: docker push 221111018jordan/be-app:latest
